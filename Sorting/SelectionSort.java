@@ -1,0 +1,35 @@
+package Sorting;
+
+import java.util.Arrays;
+
+public class SelectionSort {
+
+    public static void main(String[] args) {
+        int[] arr = {64, 25, 12, 22, 11};
+        selection(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    static void selection(int[] arr) {
+
+        for (int i = 0; i < arr.length - 1; i++) {
+
+            int minIndex = i;
+
+            // find the smallest element in remaining array
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            swap(arr, minIndex, i);
+        }
+    }
+
+    static void swap(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+}
